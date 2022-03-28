@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+        function App1() {
+            return (
+                <div>
+                    <p>Hello React 1</p>
+                </div>
+            );
+        }
+
+
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <App1 />
+                        <p>Hello React</p>
+                        <Header titel="Hello props" name="Header" />
+                        <Content name="Content"/>
+                        <Footer name="Footer"/>
+                    </div>
+                );
+            }
+        }
+
+        class Header extends React.Component {
+            render() {
+                return (
+                    <header>
+                        {console.log(this.props)}
+
+                        <p>{this.props.titel}</p>
+                        <p>{this.props.name}</p>
+                    </header>
+
+                )
+            }
+        }
+        class Footer extends React.Component {
+            render() {
+                return (
+                    <footer>{this.props.name}</footer>
+                )
+            }
+        }
+        class Content extends React.Component {
+            render() {
+                return (
+                    <main>{this.props.name}</main>
+                )
+            }
+        }
+
+
+        ReactDOM.render(<App />, document.getElementById('app'));
+
+    </script>
+
+</body>
+
+</html>
