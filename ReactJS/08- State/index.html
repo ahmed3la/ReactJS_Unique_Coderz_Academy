@@ -19,23 +19,22 @@
     <div id="app"></div>
 
     <script type="text/babel">
-        function App1() {
-            return (
-                <div>
-                    <p>Hello React 1</p>
-                </div>
-            );
-        }
-
+ 
 
         class App extends React.Component {
+            state={
+                name: 'State Component',
+                age: '1'
+
+            }
+
             render() {
                 return (
                     <div>
-                        <App1 />
-                        <p>Hello React</p>
-                        <Header titel="Hello props" name="Header" />
-                        <Content name="Content"/>
+                        <p>{this.state.name}</p>
+                        
+                        <Header name="Header" />
+                        <Content name="Content" />
                         <Footer name="Footer"/>
                     </div>
                 );
@@ -43,29 +42,42 @@
         }
 
         class Header extends React.Component {
+            state={
+                name: 'Header Component',
+                age: '1'
+
+            }
+
             render() {
                 return (
-                    <header>
-                        {console.log(this.props)}
-
-                        <p>{this.props.titel}</p>
-                        <p>{this.props.name}</p>
+                    <header> 
+                        <p>{this.props.titel}  and state {this.state.name}</p> 
                     </header>
 
                 )
             }
         }
         class Footer extends React.Component {
+            state={
+                name: 'Footer Component',
+                age: '1'
+
+            }
             render() {
                 return (
-                    <footer>{this.props.name}</footer>
+                    <footer>{this.props.name} and state {this.state.name}</footer>
                 )
             }
         }
         class Content extends React.Component {
+            state={
+                name: 'Content Component',
+                age: '1'
+
+            }
             render() {
                 return (
-                    <main>{this.props.name}</main>
+                    <main>{this.props.name} and state {this.state.name}</main>
                 )
             }
         }
